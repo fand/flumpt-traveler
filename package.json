@@ -34,7 +34,8 @@
     "url": "https://github.com/fand/flumpt-traveler.git"
   },
   "scripts": {
-    "build": "browserify -t babelify example/src/js/index.js -o index.js",
+    "build": "babel src --out-dir lib",
+    "build-page": "browserify -t babelify example/src/js/index.js -o index.js",
     "clean": "rimraf lib",
     "postversion": "git push && git push --tags && npm run clean",
     "prepublish": "npm run clean && npm run build",

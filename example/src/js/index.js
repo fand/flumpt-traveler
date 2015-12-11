@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import App from './components/App';
 
 import logger from './middlewares/logger';
-import { traveler, bindApp } from 'flumpt-traveler';
+import { traveler, bindApp } from '../../../src';
 
 // Setup renderer
 const app = new App({

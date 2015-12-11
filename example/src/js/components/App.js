@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Flux }   from 'flumpt';
 import Clicker    from './Clicker';
 
-import { DebugPanel } from 'flumpt-traveler';
+import { DebugPanel } from '../../../../src';
 
 class App extends Flux {
 
