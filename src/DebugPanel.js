@@ -42,7 +42,7 @@ export class DebugPanel extends Component {
   renderCommitted () {
     return (
       <div>
-        <h2>commited</h2>
+        <h2>Committed</h2>
         <ul style={committedStateStyle}>
           <li>{JSON.stringify(this.state.committed)}</li>
         </ul>
