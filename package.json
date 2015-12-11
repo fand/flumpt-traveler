@@ -1,0 +1,39 @@
+{
+  "name": "flumpt-traveler",
+  "description": "Time travel middleware for mizchi/flumpt",
+  "version": "0.0.1",
+  "author": "fand",
+  "bugs": {
+    "url": "https://github.com/fand/flumpt-traveler/issues"
+  },
+  "dependencies": {
+    "flumpt": "^0.1.3",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+  },
+  "homepage": "https://github.com/fand/flumpt-traveler",
+  "keywords": [
+    "flumpt",
+    "debug"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fand/flumpt-traveler.git"
+  },
+  "scripts": {
+    "build": "babel src --out-dif lib",
+    "clean": "rimraf lib",
+    "postversion": "git push && git push --tags && npm run clean",
+    "prepublish": "npm run clean && npm run build",
+    "preversion": "npm run clean && npm run test",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "version": "npm run build",
+  }
+}
