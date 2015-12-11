@@ -1,8 +1,9 @@
 # flumpt-traveler
 
-![2015-12-11 23 08 02](https://cloud.githubusercontent.com/assets/1403842/11745548/4830d80c-a05c-11e5-912f-34ebfe29002a.png)
-
 Time travel middleware for [mizchi/flumpt](https://github.com/mizchi/flumpt)
+
+![2015-12-11 23 08 02](https://cloud.githubusercontent.com/assets/1403842/11745548/4830d80c-a05c-11e5-912f-34ebfe29002a.png)
+[DEMO](http://fand.github.io/flumpt-traveler/)
 
 ## Usage
 
