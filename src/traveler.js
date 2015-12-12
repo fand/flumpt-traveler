@@ -39,9 +39,8 @@ const travelReducer = (state) => {
     // Remove undoed states
     if (undoCount !== 0) {
       states.splice(-undoCount);
+      undoCount = 0;
     }
-
-    undoCount = 0;
 
     if (committedState === null) {
       committedState = state;
