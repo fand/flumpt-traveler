@@ -2,8 +2,9 @@
 
 Time travel middleware for [mizchi/flumpt](https://github.com/mizchi/flumpt)
 
-![2015-12-11 23 08 02](https://cloud.githubusercontent.com/assets/1403842/11745548/4830d80c-a05c-11e5-912f-34ebfe29002a.png)
-[DEMO](http://fand.github.io/flumpt-traveler/)
+![travel](https://cloud.githubusercontent.com/assets/1403842/11760237/965cac98-a0d6-11e5-8029-0fa6b70a2d9c.gif)
+
+[Try Demo](http://fand.github.io/flumpt-traveler/)
 
 ## Usage
 
