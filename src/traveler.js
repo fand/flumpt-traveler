@@ -10,24 +10,49 @@ export const emitter = new EventEmitter();
 let app    = null;
 let panels = [];
 
-let committed   = null;
-let current     = null;
-let states      = [];
-let undoCount   = 0;
-let lastState   = null;
-let isTraveling = false;
+let committedState = null;
+let states         = [];
+let undoCount      = 0;
+let isTraveling    = false;
+
+const getCurrentState = () => {
+  return states[states.length - 1 - undoCount] || committedState;
+};
 
 export const getState = () => {
   return {
     states,
     undoCount,
-    committed,
+    committedState,
   };
 };
 
 /**
  * Middleware
  */
+
+const travelReducer = (state) => {
+  if (isTraveling) {
+    isTraveling = false;
+  }
+  else {
+    // Remove undoed states
+    if (undoCount !== 0) {
+      states.splice(-undoCount);
+    }
+
+    undoCount = 0;
+
+    if (committedState === null) {
+      committedState = state;
+    }
+    else {
+      states.push(state);
+    }
+  }
+
+  return getCurrentState();
+};
 
 export const bindApp = (_app) => {
   app = _app;
@@ -40,31 +65,6 @@ export const traveler = (promiseOrState) => {
   else {
     return travelReducer(promiseOrState);
   }
-};
-
-const travelReducer = (state) => {
-  if (isTraveling) {
-    isTraveling = false;
-  }
-  else {
-    // Remove undoed states
-    if (undoCount !== 0) {
-      states.splice(- undoCount);
-    }
-
-    lastState = state;
-    undoCount = 0;
-
-    if (committed === null) {
-      committed = state;
-    }
-    else {
-      states.push(state);
-    }
-  }
-
-  current = states[states.length - 1 - undoCount] || committed;
-  return current;
 };
 
 /**
@@ -88,9 +88,9 @@ emitter.on('redo', () => {
 });
 
 emitter.on('commit', () => {
-  committed = states[states.length - 1 - undoCount] || committed;
-  states    = [];
-  undoCount = 0;
+  committedState = getCurrentState();
+  states         = [];
+  undoCount      = 0;
   updatePanels();
 });
 
